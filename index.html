@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OMDb Test</title>
+</head>
+<body>
+
+<h2 id="title"></h2>
+<img id="poster" width="200">
+<p id="plot"></p>
+
+<script>
+fetch("https://www.omdbapi.com/?apikey=YOUR_API_KEY&t=Goblin&type=series")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("title").innerText = data.Title;
+    document.getElementById("poster").src = data.Poster;
+    document.getElementById("plot").innerText = data.Plot;
+  });
+</script>
+
+</body>
+</html>
